@@ -1,0 +1,18 @@
+/*
+ * style.css
+ *
+ * Custom CSS overrides for the AVRT™ licensing application.
+ *
+ * TailwindCSS is loaded via CDN in `index.html` to provide a rich set
+ * of utility classes out of the box. This file is intentionally kept
+ * minimal so that you can add your own styles or overrides without
+ * interfering with the utility-first approach. If you prefer to
+ * customize the look and feel beyond the Tailwind classes used in
+ * `index.html`, add your rules here.
+ */
+
+/* Example: Darker footer background
+.footer {
+  background-color: #f9fafb;
+}
+*/

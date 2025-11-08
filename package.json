@@ -1,0 +1,26 @@
+{
+  "name": "avrt-licensing-app",
+  "version": "1.0.0",
+  "description": "AVRT™ voice-first licensing application with tiered pricing and Stripe redirects.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "avrt",
+    "express",
+    "stripe",
+    "voice",
+    "middleware"
+  ],
+  "author": "BGBH Threads LLC / Jason Proper",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
