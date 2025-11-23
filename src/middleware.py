@@ -121,7 +121,7 @@ class AVRTFirewall:
         if not input_ethics['passed']:
             critical_violations = [
                 v for v in input_ethics['violations']
-                if v['severity'] == ViolationSeverity.CRITICAL
+                if hasattr(v.get('severity'), 'name') and v['severity'] == ViolationSeverity.CRITICAL
             ]
             if critical_violations and self.strict_mode:
                 result['blocking_reason'] = 'Critical ethics violations in input'

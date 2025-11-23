@@ -241,8 +241,10 @@ class EthicsLayer:
         discriminatory_terms = ['race', 'gender', 'religion', 'disability']
         discriminatory_contexts = ['inferior', 'superior', 'better', 'worse']
         
+        # Use a flag to avoid duplicate violations
+        found_discriminatory = False
         for term in discriminatory_terms:
-            if term in text_lower:
+            if term in text_lower and not found_discriminatory:
                 for context_word in discriminatory_contexts:
                     if context_word in text_lower:
                         violations.append({
@@ -250,7 +252,10 @@ class EthicsLayer:
                             'severity': ViolationSeverity.CRITICAL,
                             'description': f"Potentially discriminatory content detected"
                         })
+                        found_discriminatory = True
                         break
+                if found_discriminatory:
+                    break
         
         score = 1.0 - (len(violations) * 0.25)
         score = max(0.0, min(1.0, score))

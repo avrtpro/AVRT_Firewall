@@ -212,10 +212,11 @@ class ResponseFilter:
                 })
         
         # Check for potential hallucination indicators
+        # Note: These patterns are conservative to minimize false positives
         hallucination_patterns = [
-            r'\b\d{4}\b',  # Years - often hallucinated
-            r'study by [A-Z][a-z]+ et al',  # Citations - often fabricated
-            r'according to [A-Z][a-z]+ [A-Z][a-z]+',  # Named sources
+            r'\b(19|20)\d{2}\b',  # Years (1900-2099) - more specific than any 4 digits
+            r'study by [A-Z][a-z]+ et al\.?,?\s+(19|20)\d{2}',  # Citations with years
+            r'according to (Dr\.|Professor) [A-Z][a-z]+ [A-Z][a-z]+',  # Named experts
         ]
         
         potential_hallucinations = []
@@ -358,9 +359,11 @@ class ResponseFilter:
             for action in evaluation['required_actions']
         )
         
-        if disclosure_needed:
+        if disclosure_needed and filtered:
             disclosure = "As an AI assistant, I should note that "
-            filtered = disclosure + filtered[0].lower() + filtered[1:]
+            # Ensure there's content to modify
+            if len(filtered) > 0:
+                filtered = disclosure + filtered[0].lower() + filtered[1:]
         
         # Add uncertainty language if needed
         uncertainty_needed = any(

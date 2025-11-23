@@ -75,6 +75,9 @@ class VoiceInput:
             'emergency', 'urgent', 'help', 'crisis', 'immediate', 'now',
             'hurry', 'quick', 'asap', 'suicide', 'harm'
         ]
+        
+        # Critical urgency indicators (subset of urgency_indicators)
+        self.critical_indicators = ['suicide', 'harm', 'kill', 'emergency', 'crisis']
     
     def process_voice_input(
         self, 
@@ -221,8 +224,7 @@ class VoiceInput:
         )
         
         # Check for critical urgency indicators
-        critical_indicators = ['suicide', 'harm', 'kill', 'emergency', 'crisis']
-        has_critical = any(indicator in text_lower for indicator in critical_indicators)
+        has_critical = any(indicator in text_lower for indicator in self.critical_indicators)
         
         if has_critical or urgency_count >= 3:
             return 'critical'
