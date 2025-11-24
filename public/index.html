@@ -1,0 +1,59 @@
+<!--
+  index.html
+
+  This is the entry point for the AVRT™ licensing web application. It renders
+  twelve pricing tiers as buttons that route to server-side checkout
+  endpoints. TailwindCSS is loaded via CDN for rapid prototyping and
+  responsive design. A custom stylesheet (`style.css`) is also included for
+  future overrides. Replace `logo.png` with your official AVRT branding.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AVRT™ Licensing</title>
+  <!-- Tailwind CSS via CDN for quick styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom overrides (optional) -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+  <!-- Header with logo and tagline -->
+  <header class="bg-white shadow-md py-6">
+    <div class="container mx-auto flex flex-col items-center">
+      <img src="logo.png" alt="AVRT logo" class="h-20 w-auto mb-4" />
+      <h1 class="text-2xl sm:text-4xl font-bold text-gray-900 text-center">AVRT™ — The Voice Firewall for Safer AI</h1>
+    </div>
+  </header>
+
+  <!-- Main content area -->
+  <main class="flex-grow container mx-auto px-4 py-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+      <!-- Pricing tier buttons -->
+      <a href="/checkout/creator" class="block bg-blue-500 text-white text-center py-4 px-6 rounded-lg shadow hover:bg-blue-600 transition-colors duration-200 font-semibold uppercase">Creator</a>
+      <a href="/checkout/starter" class="block bg-blue-500 text-white text-center py-4 px-6 rounded-lg shadow hover:bg-blue-600 transition-colors duration-200 font-semibold uppercase">Starter</a>
+      <a href="/checkout/builder" class="block bg-blue-500 text-white text-center py-4 px-6 rounded-lg shadow hover:bg-blue-600 transition-colors duration-200 font-semibold uppercase">Builder</a>
+      <a href="/checkout/growth" class="block bg-blue-500 text-white text-center py-4 px-6 rounded-lg shadow hover:bg-blue-600 transition-colors duration-200 font-semibold uppercase">Growth</a>
+      <a href="/checkout/professional" class="block bg-blue-500 text-white text-center py-4 px-6 rounded-lg shadow hover:bg-blue-600 transition-colors duration-200 font-semibold uppercase">Professional</a>
+      <a href="/checkout/business" class="block bg-blue-500 text-white text-center py-4 px-6 rounded-lg shadow hover:bg-blue-600 transition-colors duration-200 font-semibold uppercase">Business</a>
+      <a href="/checkout/enterprise" class="block bg-blue-500 text-white text-center py-4 px-6 rounded-lg shadow hover:bg-blue-600 transition-colors duration-200 font-semibold uppercase">Enterprise</a>
+      <a href="/checkout/premium" class="block bg-blue-500 text-white text-center py-4 px-6 rounded-lg shadow hover:bg-blue-600 transition-colors duration-200 font-semibold uppercase">Premium</a>
+      <a href="/checkout/strategic_shield" class="block bg-blue-500 text-white text-center py-4 px-6 rounded-lg shadow hover:bg-blue-600 transition-colors duration-200 font-semibold uppercase">Strategic Shield</a>
+      <a href="/checkout/strategic_shield_plus" class="block bg-blue-500 text-white text-center py-4 px-6 rounded-lg shadow hover:bg-blue-600 transition-colors duration-200 font-semibold uppercase">Strategic Shield Plus</a>
+      <a href="/checkout/strategic_shield_pro" class="block bg-blue-500 text-white text-center py-4 px-6 rounded-lg shadow hover:bg-blue-600 transition-colors duration-200 font-semibold uppercase">Strategic Shield Pro</a>
+      <a href="/checkout/strategic_shield_enterprise" class="block bg-blue-500 text-white text-center py-4 px-6 rounded-lg shadow hover:bg-blue-600 transition-colors duration-200 font-semibold uppercase">Strategic Shield Enterprise</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white py-4 text-center text-sm text-gray-600">
+    <p>&copy; <span id="year"></span> BGBH Threads LLC. All rights reserved.</p>
+  </footer>
+
+  <!-- Script to update the footer year -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
