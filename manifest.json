@@ -1,0 +1,342 @@
+{
+  "name": "AVRT Firewall",
+  "display_name": "AVRT™ — Voice Reasoning Firewall",
+  "description": "The world's first voice-first ethical middleware firewall for AI systems. Built on SPIEL™ framework and THT™ protocol.",
+  "version": "1.0.0",
+  "build": "20251108",
+  "author": {
+    "name": "Jason I. Proper",
+    "organization": "BGBH Threads LLC",
+    "email": "info@avrt.pro",
+    "website": "https://avrt.pro"
+  },
+  "legal": {
+    "license": "CC BY-NC 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+    "copyright": "© 2025 Jason I. Proper, BGBH Threads LLC. All Rights Reserved.",
+    "patent": {
+      "office": "USPTO",
+      "application_number": "19/236,935",
+      "status": "Filed"
+    },
+    "trademarks": ["AVRT™", "SPIEL™", "THT™", "EaaS™"],
+    "legal_counsel": "Falcon Rappaport & Berkman LLP"
+  },
+  "platforms": {
+    "ios": {
+      "supported": true,
+      "minimum_version": "14.0",
+      "target_sdk": "iOS 17.0",
+      "frameworks_required": [
+        "AVFoundation",
+        "Speech",
+        "CoreML",
+        "StoreKit"
+      ],
+      "capabilities": [
+        "microphone",
+        "speech-recognition",
+        "background-audio",
+        "push-notifications"
+      ]
+    },
+    "web": {
+      "supported": true,
+      "minimum_browser": {
+        "chrome": "90+",
+        "safari": "14+",
+        "firefox": "88+",
+        "edge": "90+"
+      },
+      "progressive_web_app": true,
+      "service_worker": true
+    },
+    "python": {
+      "supported": true,
+      "minimum_version": "3.8",
+      "recommended_version": "3.11",
+      "package_name": "avrt-firewall",
+      "pypi_url": "https://pypi.org/project/avrt-firewall/"
+    },
+    "android": {
+      "supported": false,
+      "planned_release": "Q2 2025"
+    }
+  },
+  "api": {
+    "base_url": "https://avrt.pro/api",
+    "webhook_url": "https://avrt.pro/api/webhook",
+    "stripe_webhook_url": "https://avrt.pro/api/webhook/stripe",
+    "version": "v1",
+    "endpoints": {
+      "validate": "/v1/validate",
+      "voice_validate": "/v1/voice/validate",
+      "spiel_analyze": "/v1/spiel/analyze",
+      "tht_check": "/v1/tht/verify",
+      "analytics": "/v1/analytics",
+      "license_verify": "/v1/license/verify",
+      "audit_trail": "/v1/audit"
+    },
+    "authentication": {
+      "method": "bearer_token",
+      "header": "X-AVRT-License-Key",
+      "rate_limiting": {
+        "enabled": true,
+        "tier_based": true
+      }
+    }
+  },
+  "permissions": {
+    "required": [
+      "microphone",
+      "persistent_context",
+      "ethical_output_screening",
+      "network_access"
+    ],
+    "optional": [
+      "location",
+      "contacts",
+      "camera",
+      "notifications"
+    ],
+    "data_collection": {
+      "voice_samples": false,
+      "usage_analytics": true,
+      "crash_reports": true,
+      "personal_data": false
+    },
+    "privacy_policy": "https://avrt.pro/privacy",
+    "terms_of_service": "https://avrt.pro/terms"
+  },
+  "features": {
+    "core": [
+      "voice_first_validation",
+      "tht_protocol",
+      "spiel_framework",
+      "real_time_screening",
+      "ethical_output_validation"
+    ],
+    "voice": [
+      "start_my_day_workflow",
+      "voice_context_persistence",
+      "multi_language_support",
+      "voice_emotion_detection",
+      "conversational_safety"
+    ],
+    "safety": [
+      "hallucination_detection",
+      "bias_detection",
+      "manipulation_prevention",
+      "harmful_content_blocking",
+      "misinformation_filtering"
+    ],
+    "compliance": [
+      "audit_trail_logging",
+      "blockchain_timestamping",
+      "gdpr_compliance",
+      "hipaa_ready",
+      "sox_compliance"
+    ]
+  },
+  "protocols": {
+    "SPIEL": {
+      "name": "Safety, Personalization, Integrity, Ethics, Logic",
+      "version": "1.0",
+      "components": {
+        "S": "Safety - Voice-first ethical reasoning model",
+        "P": "Personalization - User-centric AI interactions",
+        "I": "Integrity - Blockchain-ready audit trails",
+        "E": "Ethics - THT™ protocol enforcement",
+        "L": "Logic - Real-time reasoning analysis"
+      },
+      "scoring_range": {
+        "min": 0,
+        "max": 100,
+        "safe_threshold": 85
+      }
+    },
+    "THT": {
+      "name": "Truth, Honesty, Transparency",
+      "version": "1.0",
+      "components": {
+        "T_truth": "Factual accuracy verification",
+        "H_honesty": "Transparent AI responses",
+        "T_transparency": "Explainable reasoning chains"
+      },
+      "validation_required": true
+    }
+  },
+  "licensing": {
+    "model": "tiered_subscription",
+    "payment_processor": "Stripe",
+    "currency": "USD",
+    "billing_cycle": "monthly",
+    "tiers": [
+      {
+        "name": "Creator",
+        "price": 9,
+        "stripe_link": "https://buy.stripe.com/8wMaGE3kV0f61jW6oo",
+        "features": ["basic_validation", "1000_requests_month"]
+      },
+      {
+        "name": "Starter",
+        "price": 29,
+        "features": ["voice_first", "5000_requests_month", "analytics"]
+      },
+      {
+        "name": "Builder",
+        "price": 79,
+        "features": ["voice_first", "25000_requests_month", "priority_support"]
+      },
+      {
+        "name": "Growth",
+        "price": 149,
+        "features": ["unlimited_requests", "advanced_analytics", "api_access"]
+      },
+      {
+        "name": "Professional",
+        "price": 299,
+        "features": ["enterprise_features", "sla_99_9", "dedicated_support"]
+      },
+      {
+        "name": "Business",
+        "price": 599,
+        "features": ["multi_product", "team_management", "custom_webhooks"]
+      },
+      {
+        "name": "Enterprise",
+        "price": 999,
+        "features": ["organization_wide", "audit_trails", "compliance_reports"]
+      },
+      {
+        "name": "Premium",
+        "price": 1499,
+        "features": ["priority_support", "custom_integration", "training"]
+      },
+      {
+        "name": "Strategic Shield",
+        "price": 2499,
+        "features": ["advanced_threat_modeling", "24_7_monitoring"]
+      },
+      {
+        "name": "Strategic Shield Plus",
+        "price": 3999,
+        "features": ["enhanced_monitoring", "incident_response"]
+      },
+      {
+        "name": "Strategic Shield Pro",
+        "price": 5999,
+        "features": ["dedicated_security_team", "penetration_testing"]
+      },
+      {
+        "name": "Strategic Shield Enterprise",
+        "price": "custom",
+        "features": ["white_label", "unlimited_everything", "legal_support"]
+      }
+    ],
+    "trial": {
+      "available": true,
+      "duration_days": 14,
+      "requires_card": false
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/avrtpro/AVRT_Firewall",
+    "branch": "main",
+    "deployment_branch": "claude/avrt-firewall-deploy-011CUvqBsxszsB7wFRgKmAAV",
+    "issues": "https://github.com/avrtpro/AVRT_Firewall/issues",
+    "documentation": "https://docs.avrt.pro"
+  },
+  "dependencies": {
+    "python": {
+      "requests": ">=2.28.0",
+      "python-dotenv": ">=1.0.0",
+      "stripe": ">=5.0.0",
+      "pydantic": ">=2.0.0",
+      "fastapi": ">=0.100.0",
+      "uvicorn": ">=0.23.0",
+      "sqlalchemy": ">=2.0.0",
+      "psycopg2-binary": ">=2.9.0",
+      "SpeechRecognition": ">=3.10.0",
+      "pydub": ">=0.25.0"
+    },
+    "web": {
+      "express": "^4.18.2",
+      "dotenv": "^16.3.1",
+      "stripe": "^12.0.0"
+    }
+  },
+  "deployment": {
+    "environments": {
+      "production": "https://avrt.pro",
+      "staging": "https://staging.avrt.pro",
+      "development": "http://localhost:3000"
+    },
+    "supported_platforms": [
+      "GitHub",
+      "Replit",
+      "Vercel",
+      "Render",
+      "Railway",
+      "Heroku",
+      "AWS",
+      "Google Cloud",
+      "Azure"
+    ],
+    "docker_support": true,
+    "kubernetes_support": true
+  },
+  "monitoring": {
+    "dashboard_url": "https://avrt.pro/dashboard",
+    "metrics": [
+      "total_validations",
+      "safety_incidents_prevented",
+      "average_spiel_score",
+      "tht_compliance_rate",
+      "voice_interaction_analytics"
+    ],
+    "alerts": {
+      "enabled": true,
+      "channels": ["email", "webhook", "slack"]
+    }
+  },
+  "support": {
+    "email": "info@avrt.pro",
+    "website": "https://avrt.pro",
+    "documentation": "https://docs.avrt.pro",
+    "status_page": "https://status.avrt.pro",
+    "community": "https://community.avrt.pro"
+  },
+  "metadata": {
+    "keywords": [
+      "AI safety",
+      "ethical AI",
+      "voice-first",
+      "middleware",
+      "content moderation",
+      "AI firewall",
+      "SPIEL",
+      "THT",
+      "voice reasoning"
+    ],
+    "categories": [
+      "AI Safety",
+      "Developer Tools",
+      "Security",
+      "Voice Technology",
+      "Ethics"
+    ],
+    "sdks": {
+      "python": "https://github.com/avrtpro/avrt-python-sdk",
+      "javascript": "https://github.com/avrtpro/avrt-js-sdk",
+      "swift": "https://github.com/avrtpro/avrt-ios-sdk"
+    }
+  },
+  "certification": {
+    "blockchain_ready": true,
+    "originstamp_compatible": true,
+    "sha256_verification": true,
+    "audit_trail_retention_days": 365
+  }
+}
