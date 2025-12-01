@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  USPTO Trademark Application XML (TEAS Format)
+  Applicant: Jason I. Proper / BGBH Threads LLC
+  Generated: December 1, 2025
+  Legal Counsel: Falcon Rappaport & Berkman LLP
+
+  This XML contains 5 trademark applications for:
+  1. AVRT™ - Advanced Voice Reasoning Technology
+  2. SPIEL™ - Safety, Personalization, Integrity, Ethics, Logic
+  3. THT™ - Truth, Honesty, Transparency
+  4. EaaS™ - Ethics as a Service
+  5. AWOGO™ - Always Working On Getting Organized
+-->
+
+<TrademarkApplications xmlns="http://www.uspto.gov/trademark/teas">
+
+  <!-- ============================================================ -->
+  <!-- TRADEMARK 1: AVRT™ -->
+  <!-- ============================================================ -->
+  <TrademarkApplication>
+    <Header>
+      <ApplicationType>TEAS Plus</ApplicationType>
+      <FilingBasis>Intent to Use (1(b))</FilingBasis>
+      <ApplicationDate>2025-12-01</ApplicationDate>
+      <ApplicationNumber></ApplicationNumber> <!-- To be assigned by USPTO -->
+    </Header>
+
+    <ApplicantInformation>
+      <ApplicantType>Corporation</ApplicantType>
+      <EntityName>BGBH Threads LLC</EntityName>
+      <IndividualName>
+        <FirstName>Jason</FirstName>
+        <MiddleInitial>I</MiddleInitial>
+        <LastName>Proper</LastName>
+      </IndividualName>
+      <Address>
+        <Street></Street> <!-- To be provided by Jason -->
+        <City></City>
+        <State></State>
+        <PostalCode></PostalCode>
+        <Country>United States</Country>
+      </Address>
+      <Email>info@avrt.pro</Email>
+      <PhoneNumber></PhoneNumber> <!-- To be provided -->
+      <Citizenship>United States</Citizenship>
+    </ApplicantInformation>
+
+    <TrademarkInformation>
+      <MarkLiteralElement>AVRT</MarkLiteralElement>
+      <MarkType>Standard Character Mark</MarkType>
+      <MarkDescription>
+        The mark consists of the standard characters "AVRT" representing Advanced Voice Reasoning Technology.
+      </MarkDescription>
+      <TranslationStatement>None</TranslationStatement>
+      <Disclaimer>None</Disclaimer>
+    </TrademarkInformation>
+
+    <GoodsAndServices>
+      <InternationalClass>
+        <ClassNumber>009</ClassNumber>
+        <Description>
+          Computer software for artificial intelligence safety and content moderation;
+          downloadable middleware software for ethical AI validation; voice-first AI
+          firewall software; software for real-time AI output screening and validation;
+          computer software development tools for implementing ethical AI protocols;
+          downloadable mobile applications for voice-based AI interaction monitoring.
+        </Description>
+      </InternationalClass>
+
+      <InternationalClass>
+        <ClassNumber>042</ClassNumber>
+        <Description>
+          Software as a service (SaaS) services featuring software for AI safety validation;
+          platform as a service (PaaS) featuring computer software platforms for ethical AI
+          middleware; providing temporary use of online non-downloadable software for
+          monitoring and validating AI-generated content; computer software consulting
+          services in the field of AI ethics and safety; technical support services, namely,
+          troubleshooting of computer software problems related to AI content validation;
+          research and development services in the field of artificial intelligence ethics
+          and safety protocols.
+        </Description>
+      </InternationalClass>
+    </GoodsAndServices>
+
+    <FilingBasisInformation>
+      <FilingBasis>1(b) - Intent to Use</FilingBasis>
+      <FirstUseInCommerce>Not yet in use</FirstUseInCommerce>
+      <FirstUseAnywhere>Not yet in use</FirstUseAnywhere>
+      <IntentToUseStatement>
+        Applicant has a bona fide intention to use the mark in commerce on or in
+        connection with the identified goods/services.
+      </IntentToUseStatement>
+    </FilingBasisInformation>
+
+    <Attorney>
+      <FirmName>Falcon Rappaport &amp; Berkman LLP</FirmName>
+      <ContactEmail>info@avrt.pro</ContactEmail>
+    </Attorney>
+
+    <Declarations>
+      <SignatoryName>Jason I. Proper</SignatoryName>
+      <SignatoryPosition>Owner, BGBH Threads LLC</SignatoryPosition>
+      <DeclarationDate>2025-12-01</DeclarationDate>
+      <Statement>
+        The signatory believes the applicant to be the owner of the trademark sought
+        to be registered. The mark is in use in commerce, or the applicant has a bona
+        fide intention to use the mark in commerce. To the best of the signatory's
+        knowledge and belief, no other person has the right to use the mark in commerce,
+        either in the identical form or in such near resemblance as to be likely to
+        cause confusion, mistake, or deception.
+      </Statement>
+    </Declarations>
+  </TrademarkApplication>
+
+  <!-- ============================================================ -->
+  <!-- TRADEMARK 2: SPIEL™ -->
+  <!-- ============================================================ -->
+  <TrademarkApplication>
+    <Header>
+      <ApplicationType>TEAS Plus</ApplicationType>
+      <FilingBasis>Intent to Use (1(b))</FilingBasis>
+      <ApplicationDate>2025-12-01</ApplicationDate>
+      <ApplicationNumber></ApplicationNumber>
+    </Header>
+
+    <ApplicantInformation>
+      <ApplicantType>Corporation</ApplicantType>
+      <EntityName>BGBH Threads LLC</EntityName>
+      <IndividualName>
+        <FirstName>Jason</FirstName>
+        <MiddleInitial>I</MiddleInitial>
+        <LastName>Proper</LastName>
+      </IndividualName>
+      <Email>info@avrt.pro</Email>
+      <Citizenship>United States</Citizenship>
+    </ApplicantInformation>
+
+    <TrademarkInformation>
+      <MarkLiteralElement>SPIEL</MarkLiteralElement>
+      <MarkType>Standard Character Mark</MarkType>
+      <MarkDescription>
+        The mark consists of the standard characters "SPIEL" representing the acronym
+        for Safety, Personalization, Integrity, Ethics, and Logic framework.
+      </MarkDescription>
+      <MeaningStatement>
+        SPIEL is an acronym for Safety, Personalization, Integrity, Ethics, and Logic,
+        representing a comprehensive ethical reasoning framework for AI systems.
+      </MeaningStatement>
+    </TrademarkInformation>
+
+    <GoodsAndServices>
+      <InternationalClass>
+        <ClassNumber>009</ClassNumber>
+        <Description>
+          Computer software implementing ethical AI frameworks; downloadable software
+          for evaluating AI safety, personalization, integrity, ethics, and logic;
+          software development kits (SDK) for implementing ethical AI protocols;
+          computer software for analyzing and scoring AI-generated content based on
+          ethical criteria.
+        </Description>
+      </InternationalClass>
+
+      <InternationalClass>
+        <ClassNumber>042</ClassNumber>
+        <Description>
+          Software as a service (SaaS) featuring ethical AI evaluation frameworks;
+          providing online non-downloadable software for implementing safety,
+          personalization, integrity, ethics, and logic validation in AI systems;
+          consulting services in the field of ethical AI framework implementation.
+        </Description>
+      </InternationalClass>
+    </GoodsAndServices>
+
+    <FilingBasisInformation>
+      <FilingBasis>1(b) - Intent to Use</FilingBasis>
+      <IntentToUseStatement>
+        Applicant has a bona fide intention to use the mark in commerce on or in
+        connection with the identified goods/services.
+      </IntentToUseStatement>
+    </FilingBasisInformation>
+
+    <Attorney>
+      <FirmName>Falcon Rappaport &amp; Berkman LLP</FirmName>
+      <ContactEmail>info@avrt.pro</ContactEmail>
+    </Attorney>
+
+    <Declarations>
+      <SignatoryName>Jason I. Proper</SignatoryName>
+      <SignatoryPosition>Owner, BGBH Threads LLC</SignatoryPosition>
+      <DeclarationDate>2025-12-01</DeclarationDate>
+    </Declarations>
+  </TrademarkApplication>
+
+  <!-- ============================================================ -->
+  <!-- TRADEMARK 3: THT™ -->
+  <!-- ============================================================ -->
+  <TrademarkApplication>
+    <Header>
+      <ApplicationType>TEAS Plus</ApplicationType>
+      <FilingBasis>Intent to Use (1(b))</FilingBasis>
+      <ApplicationDate>2025-12-01</ApplicationDate>
+      <ApplicationNumber></ApplicationNumber>
+    </Header>
+
+    <ApplicantInformation>
+      <ApplicantType>Corporation</ApplicantType>
+      <EntityName>BGBH Threads LLC</EntityName>
+      <IndividualName>
+        <FirstName>Jason</FirstName>
+        <MiddleInitial>I</MiddleInitial>
+        <LastName>Proper</LastName>
+      </IndividualName>
+      <Email>info@avrt.pro</Email>
+      <Citizenship>United States</Citizenship>
+    </ApplicantInformation>
+
+    <TrademarkInformation>
+      <MarkLiteralElement>THT</MarkLiteralElement>
+      <MarkType>Standard Character Mark</MarkType>
+      <MarkDescription>
+        The mark consists of the standard characters "THT" representing the protocol
+        for Truth, Honesty, and Transparency in AI communications.
+      </MarkDescription>
+      <MeaningStatement>
+        THT is an acronym for Truth, Honesty, and Transparency, representing a
+        validation protocol ensuring factual accuracy, transparent intent, and
+        explainable reasoning in AI systems.
+      </MeaningStatement>
+    </TrademarkInformation>
+
+    <GoodsAndServices>
+      <InternationalClass>
+        <ClassNumber>009</ClassNumber>
+        <Description>
+          Computer software for AI content validation and verification; software for
+          ensuring truth, honesty, and transparency in artificial intelligence systems;
+          downloadable middleware for validating factual accuracy of AI-generated content;
+          software for detecting misinformation and manipulation in AI outputs.
+        </Description>
+      </InternationalClass>
+
+      <InternationalClass>
+        <ClassNumber>042</ClassNumber>
+        <Description>
+          Software as a service (SaaS) featuring AI truth verification protocols;
+          platform services for implementing transparency and honesty validation in
+          AI systems; consulting services related to AI fact-checking and verification
+          technologies.
+        </Description>
+      </InternationalClass>
+    </GoodsAndServices>
+
+    <FilingBasisInformation>
+      <FilingBasis>1(b) - Intent to Use</FilingBasis>
+      <IntentToUseStatement>
+        Applicant has a bona fide intention to use the mark in commerce on or in
+        connection with the identified goods/services.
+      </IntentToUseStatement>
+    </FilingBasisInformation>
+
+    <Attorney>
+      <FirmName>Falcon Rappaport &amp; Berkman LLP</FirmName>
+      <ContactEmail>info@avrt.pro</ContactEmail>
+    </Attorney>
+
+    <Declarations>
+      <SignatoryName>Jason I. Proper</SignatoryName>
+      <SignatoryPosition>Owner, BGBH Threads LLC</SignatoryPosition>
+      <DeclarationDate>2025-12-01</DeclarationDate>
+    </Declarations>
+  </TrademarkApplication>
+
+  <!-- ============================================================ -->
+  <!-- TRADEMARK 4: EaaS™ (Ethics as a Service) -->
+  <!-- ============================================================ -->
+  <TrademarkApplication>
+    <Header>
+      <ApplicationType>TEAS Plus</ApplicationType>
+      <FilingBasis>Intent to Use (1(b))</FilingBasis>
+      <ApplicationDate>2025-12-01</ApplicationDate>
+      <ApplicationNumber></ApplicationNumber>
+    </Header>
+
+    <ApplicantInformation>
+      <ApplicantType>Corporation</ApplicantType>
+      <EntityName>BGBH Threads LLC</EntityName>
+      <IndividualName>
+        <FirstName>Jason</FirstName>
+        <MiddleInitial>I</MiddleInitial>
+        <LastName>Proper</LastName>
+      </IndividualName>
+      <Email>info@avrt.pro</Email>
+      <Citizenship>United States</Citizenship>
+    </ApplicantInformation>
+
+    <TrademarkInformation>
+      <MarkLiteralElement>EaaS</MarkLiteralElement>
+      <MarkType>Standard Character Mark</MarkType>
+      <MarkDescription>
+        The mark consists of the standard characters "EaaS" representing Ethics as a Service.
+      </MarkDescription>
+      <MeaningStatement>
+        EaaS is an acronym for "Ethics as a Service," representing cloud-based ethical
+        validation and compliance services for AI systems.
+      </MeaningStatement>
+    </TrademarkInformation>
+
+    <GoodsAndServices>
+      <InternationalClass>
+        <ClassNumber>042</ClassNumber>
+        <Description>
+          Platform as a service (PaaS) featuring ethical validation for AI applications;
+          software as a service (SaaS) providing ethics compliance checking for artificial
+          intelligence systems; cloud computing services featuring ethical AI frameworks;
+          providing temporary use of online non-downloadable software for ethical
+          evaluation of AI-generated content; consulting services in the field of AI
+          ethics implementation and compliance.
+        </Description>
+      </InternationalClass>
+
+      <InternationalClass>
+        <ClassNumber>009</ClassNumber>
+        <Description>
+          Downloadable cloud-based software for AI ethics validation; software for
+          providing ethics-as-a-service functionality; API software for integrating
+          ethical validation into AI applications.
+        </Description>
+      </InternationalClass>
+    </GoodsAndServices>
+
+    <FilingBasisInformation>
+      <FilingBasis>1(b) - Intent to Use</FilingBasis>
+      <IntentToUseStatement>
+        Applicant has a bona fide intention to use the mark in commerce on or in
+        connection with the identified goods/services.
+      </IntentToUseStatement>
+    </FilingBasisInformation>
+
+    <Attorney>
+      <FirmName>Falcon Rappaport &amp; Berkman LLP</FirmName>
+      <ContactEmail>info@avrt.pro</ContactEmail>
+    </Attorney>
+
+    <Declarations>
+      <SignatoryName>Jason I. Proper</SignatoryName>
+      <SignatoryPosition>Owner, BGBH Threads LLC</SignatoryPosition>
+      <DeclarationDate>2025-12-01</DeclarationDate>
+    </Declarations>
+  </TrademarkApplication>
+
+  <!-- ============================================================ -->
+  <!-- TRADEMARK 5: AWOGO™ (Always Working On Getting Organized) -->
+  <!-- ============================================================ -->
+  <TrademarkApplication>
+    <Header>
+      <ApplicationType>TEAS Plus</ApplicationType>
+      <FilingBasis>Intent to Use (1(b))</FilingBasis>
+      <ApplicationDate>2025-12-01</ApplicationDate>
+      <ApplicationNumber></ApplicationNumber>
+    </Header>
+
+    <ApplicantInformation>
+      <ApplicantType>Corporation</ApplicantType>
+      <EntityName>BGBH Threads LLC</EntityName>
+      <IndividualName>
+        <FirstName>Jason</FirstName>
+        <MiddleInitial>I</MiddleInitial>
+        <LastName>Proper</LastName>
+      </IndividualName>
+      <Email>info@avrt.pro</Email>
+      <Citizenship>United States</Citizenship>
+    </ApplicantInformation>
+
+    <TrademarkInformation>
+      <MarkLiteralElement>AWOGO</MarkLiteralElement>
+      <MarkType>Standard Character Mark</MarkType>
+      <MarkDescription>
+        The mark consists of the standard characters "AWOGO" representing Always Working
+        On Getting Organized.
+      </MarkDescription>
+      <MeaningStatement>
+        AWOGO is an acronym for "Always Working On Getting Organized," representing a
+        productivity and organization methodology integrated with AI-assisted workflow
+        management, particularly designed for neurodivergent users.
+      </MeaningStatement>
+    </TrademarkInformation>
+
+    <GoodsAndServices>
+      <InternationalClass>
+        <ClassNumber>009</ClassNumber>
+        <Description>
+          Computer software for personal productivity and organization; downloadable
+          mobile applications for task management and workflow organization; AI-assisted
+          productivity software; software for neurodivergent-friendly task management;
+          downloadable software for voice-based productivity tracking and organization.
+        </Description>
+      </InternationalClass>
+
+      <InternationalClass>
+        <ClassNumber>042</ClassNumber>
+        <Description>
+          Software as a service (SaaS) featuring productivity and organization tools;
+          providing online non-downloadable software for AI-assisted task management;
+          platform services for neurodivergent-accessible productivity workflows;
+          consulting services in the field of productivity software implementation.
+        </Description>
+      </InternationalClass>
+
+      <InternationalClass>
+        <ClassNumber>041</ClassNumber>
+        <Description>
+          Educational services, namely, providing training and workshops in the field of
+          personal productivity and organization for neurodivergent individuals; coaching
+          services in the field of task management and productivity optimization.
+        </Description>
+      </InternationalClass>
+    </GoodsAndServices>
+
+    <FilingBasisInformation>
+      <FilingBasis>1(b) - Intent to Use</FilingBasis>
+      <IntentToUseStatement>
+        Applicant has a bona fide intention to use the mark in commerce on or in
+        connection with the identified goods/services.
+      </IntentToUseStatement>
+    </FilingBasisInformation>
+
+    <Attorney>
+      <FirmName>Falcon Rappaport &amp; Berkman LLP</FirmName>
+      <ContactEmail>info@avrt.pro</ContactEmail>
+    </Attorney>
+
+    <Declarations>
+      <SignatoryName>Jason I. Proper</SignatoryName>
+      <SignatoryPosition>Owner, BGBH Threads LLC</SignatoryPosition>
+      <DeclarationDate>2025-12-01</DeclarationDate>
+    </Declarations>
+  </TrademarkApplication>
+
+</TrademarkApplications>
