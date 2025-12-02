@@ -1,0 +1,55 @@
+{
+  "expo": {
+    "name": "AVRT Voice Firewall",
+    "slug": "avrt-voice-firewall",
+    "version": "5.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.bgbhthreads.avrt",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "AVRT needs microphone access for voice-first ethical AI monitoring",
+        "NSSpeechRecognitionUsageDescription": "AVRT uses speech recognition for safety analysis"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#000000"
+      },
+      "package": "com.bgbhthreads.avrt",
+      "versionCode": 1,
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.INTERNET"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Allow AVRT to access your microphone for voice safety monitoring."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "avrt-voice-firewall-2025"
+      }
+    }
+  }
+}
