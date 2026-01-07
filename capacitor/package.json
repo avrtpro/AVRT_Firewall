@@ -1,0 +1,20 @@
+{
+  "name": "avrt-capacitor",
+  "version": "1.0.0",
+  "description": "Capacitor configuration for AVRT™ iOS deployment",
+  "dependencies": {
+    "@capacitor/core": "^5.5.1",
+    "@capacitor/cli": "^5.5.1",
+    "@capacitor/ios": "^5.5.1",
+    "@capacitor/android": "^5.5.1",
+    "@capacitor/splash-screen": "^5.0.6"
+  },
+  "scripts": {
+    "build:ios": "cd ../frontend && npm run build && cd .. && npx cap sync ios && npx cap open ios",
+    "build:android": "cd ../frontend && npm run build && cd .. && npx cap sync android && npx cap open android",
+    "sync": "npx cap sync",
+    "copy": "npx cap copy",
+    "open:ios": "npx cap open ios",
+    "open:android": "npx cap open android"
+  }
+}

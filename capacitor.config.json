@@ -1,0 +1,27 @@
+{
+  "appId": "pro.avrt.firewall",
+  "appName": "AVRT Firewall",
+  "webDir": "frontend/dist",
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 2000,
+      "backgroundColor": "#3B82F6",
+      "showSpinner": true,
+      "spinnerColor": "#FFFFFF"
+    }
+  },
+  "ios": {
+    "contentInset": "always"
+  },
+  "android": {
+    "buildOptions": {
+      "keystorePath": "",
+      "keystorePassword": "",
+      "keystoreAlias": "",
+      "keystoreAliasPassword": ""
+    }
+  }
+}
