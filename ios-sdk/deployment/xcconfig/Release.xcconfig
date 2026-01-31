@@ -1,0 +1,41 @@
+// AVRT iOS Release Configuration
+// (c) 2025 Jason I. Proper, BGBH Threads LLC
+
+// Build Settings
+PRODUCT_NAME = AVRT
+PRODUCT_BUNDLE_IDENTIFIER = com.bgbhthreads.avrt.ios
+INFOPLIST_FILE = AVRT_iOS/Info.plist
+
+// Deployment Target
+IPHONEOS_DEPLOYMENT_TARGET = 16.0
+TARGETED_DEVICE_FAMILY = 1,2
+
+// Swift Settings
+SWIFT_VERSION = 5.0
+SWIFT_OPTIMIZATION_LEVEL = -O
+SWIFT_COMPILATION_MODE = wholemodule
+
+// Release Settings
+DEBUG_INFORMATION_FORMAT = dwarf-with-dsym
+ENABLE_NS_ASSERTIONS = NO
+VALIDATE_PRODUCT = YES
+ONLY_ACTIVE_ARCH = NO
+
+// Code Signing (Update with your team and provisioning profile)
+CODE_SIGN_STYLE = Manual
+DEVELOPMENT_TEAM =
+PROVISIONING_PROFILE_SPECIFIER =
+CODE_SIGN_IDENTITY = iPhone Distribution
+
+// AVRT Configuration
+AVRT_LICENSE_KEY = $(AVRT_LICENSE_KEY)
+AVRT_API_BASE_URL = https://avrt.pro/api
+AVRT_ENV = production
+
+// App Store Settings
+ENABLE_BITCODE = NO
+STRIP_INSTALLED_PRODUCT = YES
+COPY_PHASE_STRIP = YES
+
+// Preprocessor
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) NDEBUG=1

@@ -1,0 +1,67 @@
+version: '3.8'
+
+# AVRT Backend Deployment
+# (c) 2025 Jason I. Proper, BGBH Threads LLC
+
+services:
+  avrt-api:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    container_name: avrt-api
+    ports:
+      - "8000:8000"
+    environment:
+      - AVRT_ENV=production
+      - AVRT_LICENSE_KEY=${AVRT_LICENSE_KEY}
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+      - PORT=8000
+    volumes:
+      - avrt-logs:/app/logs
+      - avrt-audit:/app/audit
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - avrt-network
+
+  # Optional: Redis for caching (production)
+  redis:
+    image: redis:7-alpine
+    container_name: avrt-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+    networks:
+      - avrt-network
+
+  # Optional: Nginx reverse proxy
+  nginx:
+    image: nginx:alpine
+    container_name: avrt-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - avrt-api
+    restart: unless-stopped
+    networks:
+      - avrt-network
+
+volumes:
+  avrt-logs:
+  avrt-audit:
+  redis-data:
+
+networks:
+  avrt-network:
+    driver: bridge

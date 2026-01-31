@@ -1,0 +1,34 @@
+// AVRT iOS Debug Configuration
+// (c) 2025 Jason I. Proper, BGBH Threads LLC
+
+// Build Settings
+PRODUCT_NAME = AVRT_iOS
+PRODUCT_BUNDLE_IDENTIFIER = com.bgbhthreads.avrt.ios.debug
+INFOPLIST_FILE = AVRT_iOS/Info.plist
+
+// Deployment Target
+IPHONEOS_DEPLOYMENT_TARGET = 16.0
+TARGETED_DEVICE_FAMILY = 1,2
+
+// Swift Settings
+SWIFT_VERSION = 5.0
+SWIFT_OPTIMIZATION_LEVEL = -Onone
+SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG
+
+// Debug Settings
+DEBUG_INFORMATION_FORMAT = dwarf
+ENABLE_TESTABILITY = YES
+GCC_OPTIMIZATION_LEVEL = 0
+ONLY_ACTIVE_ARCH = YES
+
+// Code Signing (Update with your team)
+CODE_SIGN_STYLE = Automatic
+DEVELOPMENT_TEAM =
+
+// AVRT Configuration
+AVRT_LICENSE_KEY = dev-license-key
+AVRT_API_BASE_URL = http://localhost:8000/api
+AVRT_ENV = development
+
+// Preprocessor
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) DEBUG=1 AVRT_DEBUG=1
