@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<!--
+    AVRT SDK - App Store Connect Metadata
+    Private Enterprise Evaluation Configuration
+
+    (c) 2025 Jason I. Proper, BGBH Threads LLC
+    Patent: USPTO 19/236,935
+-->
+<dict>
+    <!-- App Information -->
+    <key>AppName</key>
+    <string>AVRT SDK Demo</string>
+    <key>AppSubtitle</key>
+    <string>Ethical AI Voice Firewall</string>
+    <key>BundleID</key>
+    <string>com.bgbhthreads.avrt.ios</string>
+
+    <!-- SDK Framework Bundle ID -->
+    <key>FrameworkBundleID</key>
+    <string>com.bgbhthreads.avrt.sdk</string>
+
+    <!-- Version Info -->
+    <key>Version</key>
+    <string>1.0.0</string>
+    <key>BuildNumber</key>
+    <string>013126</string>
+
+    <!-- Categorization -->
+    <key>PrimaryCategory</key>
+    <string>Developer Tools</string>
+    <key>SecondaryCategory</key>
+    <string>Business</string>
+    <key>ContentRating</key>
+    <string>4+</string>
+
+    <!-- Distribution Type -->
+    <key>DistributionType</key>
+    <string>private-enterprise</string>
+    <key>TestFlightType</key>
+    <string>internal-testing</string>
+    <key>ExternalTestersEnabled</key>
+    <false/>
+
+    <!-- SDK Classification -->
+    <key>AppType</key>
+    <string>middleware-sdk-demo</string>
+    <key>MonetizationModel</key>
+    <string>b2b-stripe-licensing</string>
+    <key>InAppPurchases</key>
+    <false/>
+    <key>ApplePayEnabled</key>
+    <false/>
+    <key>SubscriptionsEnabled</key>
+    <false/>
+
+    <!-- B2B Licensing Note -->
+    <key>LicensingDisclaimer</key>
+    <string>This is a middleware SDK. Licensing is handled via Stripe B2B portal at https://buy.stripe.com/8wMaGE3kV0f61jW6oo. No in-app purchases or Apple Pay subscriptions are used. This app demonstrates SDK capabilities for enterprise evaluation.</string>
+
+    <!-- Description -->
+    <key>ShortDescription</key>
+    <string>AVRT SDK provides voice-first ethical AI middleware with SPIEL framework validation and THT protocol compliance.</string>
+
+    <key>FullDescription</key>
+    <string>AVRT (Advanced Voice Reasoning Technology) is a middleware SDK that acts as an ethical firewall between human voice input and AI language models.
+
+KEY FEATURES:
+- SPIEL Framework: Safety, Personalization, Integrity, Ethics, Logic scoring
+- THT Protocol: Truth, Honesty, Transparency validation
+- EaaS: Ethics-as-a-Service rule engine
+- LARM: Encrypted audit logging with SHA-256 hash chains
+- Voice-first input processing
+- Fail-closed security defaults
+
+This demo app showcases SDK capabilities for enterprise B2B evaluation. Production licensing available via Stripe portal.
+
+Patent: USPTO 19/236,935
+(c) 2025 BGBH Threads LLC</string>
+
+    <!-- Keywords -->
+    <key>Keywords</key>
+    <array>
+        <string>AI Safety</string>
+        <string>Ethical AI</string>
+        <string>Voice Assistant</string>
+        <string>Middleware</string>
+        <string>SDK</string>
+        <string>Enterprise</string>
+        <string>B2B</string>
+        <string>Compliance</string>
+        <string>Firewall</string>
+        <string>LLM</string>
+    </array>
+
+    <!-- Support URLs -->
+    <key>SupportURL</key>
+    <string>https://avrt.pro/support</string>
+    <key>MarketingURL</key>
+    <string>https://avrt.pro</string>
+    <key>PrivacyPolicyURL</key>
+    <string>https://avrt.pro/privacy</string>
+
+    <!-- Contact -->
+    <key>DeveloperName</key>
+    <string>BGBH Threads LLC</string>
+    <key>ContactEmail</key>
+    <string>info@avrt.pro</string>
+    <key>ContactPhone</key>
+    <string>+1-XXX-XXX-XXXX</string>
+
+    <!-- Review Notes for Apple -->
+    <key>ReviewNotes</key>
+    <string>This is a PRIVATE ENTERPRISE EVALUATION build for the AVRT middleware SDK.
+
+PURPOSE: Demonstrate SDK capabilities to potential B2B licensees.
+
+MONETIZATION: All licensing is handled externally via Stripe B2B portal. No Apple Pay, no in-app purchases, no subscriptions within the app.
+
+DEMO ACCOUNT: Available upon request for review purposes.
+
+The app requires microphone access for voice input demonstration. All voice processing occurs on-device; no audio is transmitted externally.
+
+Patent: USPTO 19/236,935
+Trademarks: AVRT, SPIEL, THT, EaaS, LARM
+
+Contact: jason.proper29@gmail.com</string>
+
+    <!-- Export Compliance -->
+    <key>UsesEncryption</key>
+    <true/>
+    <key>EncryptionExempt</key>
+    <true/>
+    <key>EncryptionExemptionReason</key>
+    <string>Uses standard iOS encryption APIs (CryptoKit) for local audit log encryption only. No proprietary encryption algorithms. Qualifies for ECCN 5D002 exemption.</string>
+
+    <!-- Privacy Declarations -->
+    <key>PrivacyNutritionLabel</key>
+    <dict>
+        <key>DataCollected</key>
+        <array>
+            <dict>
+                <key>DataType</key>
+                <string>Audio Data</string>
+                <key>Purpose</key>
+                <string>App Functionality</string>
+                <key>LinkedToUser</key>
+                <false/>
+                <key>UsedForTracking</key>
+                <false/>
+                <key>Note</key>
+                <string>Voice transcription processed on-device only</string>
+            </dict>
+        </array>
+        <key>DataNotCollected</key>
+        <array>
+            <string>Name</string>
+            <string>Email</string>
+            <string>Phone Number</string>
+            <string>Location</string>
+            <string>Browsing History</string>
+            <string>Purchases</string>
+            <string>Identifiers</string>
+        </array>
+    </dict>
+
+    <!-- TestFlight Configuration -->
+    <key>TestFlightConfig</key>
+    <dict>
+        <key>BetaAppDescription</key>
+        <string>AVRT SDK demonstration app for enterprise B2B evaluation. Test voice input, SPIEL scoring, and ethical AI validation features.</string>
+        <key>BetaAppFeedbackEmail</key>
+        <string>feedback@avrt.pro</string>
+        <key>WhatToTest</key>
+        <string>1. Voice input capture and transcription
+2. SPIEL score display (Safety, Personalization, Integrity, Ethics, Logic)
+3. THT protocol validation indicators
+4. Audit log export functionality
+5. Dashboard analytics view</string>
+        <key>DemoAccountRequired</key>
+        <false/>
+        <key>InternalOnly</key>
+        <true/>
+    </dict>
+</dict>
+</plist>
