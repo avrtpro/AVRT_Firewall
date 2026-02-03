@@ -2,7 +2,8 @@
 
 **Advanced Voice Reasoning Technology**
 **Version:** 1.0.0 (Build 013126)
-**Date:** January 31, 2026
+**Tag:** ios-v1.0.0-avrt
+**Date:** February 3, 2026
 
 ---
 

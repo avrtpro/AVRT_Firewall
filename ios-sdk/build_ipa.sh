@@ -17,6 +17,9 @@ EXPORT_DIR="${BUILD_DIR}/export"
 ARCHIVE_PATH="${BUILD_DIR}/${PROJECT_NAME}.xcarchive"
 IPA_NAME="AVRT_SDK_FINAL_013126.ipa"
 EXPORT_OPTIONS="../deployment/ExportOptions.plist"
+LOG_DIR="../deployment/logs"
+BUILD_LOG="${LOG_DIR}/build.log"
+SDK_VERSION="ios-v1.0.0-avrt"
 
 # Colors for output
 RED='\033[0;31m'
@@ -128,23 +131,52 @@ fi
 echo -e "${GREEN}IPA created: ${EXPORT_DIR}/${IPA_NAME}${NC}"
 echo ""
 
-# Generate SHA256SUMS
-echo -e "${YELLOW}Step 4: Generating SHA256 checksums...${NC}"
+# Generate SHA256SUMS and Log
+echo -e "${YELLOW}Step 4: Generating SHA256 checksums and build log...${NC}"
 
 cd "${EXPORT_DIR}"
 
+# Calculate SHA-256 hash
+IPA_HASH=$(shasum -a 256 "${IPA_NAME}" | awk '{print $1}')
+BUILD_TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+
 cat > SHA256SUMS.txt << EOF
 # AVRT iOS SDK SHA256 Checksums
-# Generated: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+# Generated: ${BUILD_TIMESTAMP}
 # Build: 013126
+# Version: ${SDK_VERSION}
 # Patent: USPTO 19/236,935
 # (c) 2025 Jason I. Proper, BGBH Threads LLC
 
+${IPA_HASH}  ${IPA_NAME}
 EOF
 
-shasum -a 256 "${IPA_NAME}" >> SHA256SUMS.txt
-
 echo -e "${GREEN}SHA256SUMS.txt created.${NC}"
+
+# Ensure log directory exists
+mkdir -p "${LOG_DIR}"
+
+# Append to build.log
+cat >> "${BUILD_LOG}" << LOGEOF
+
+═══════════════════════════════════════════════════════════════════════
+AVRT iOS SDK Build Log Entry
+═══════════════════════════════════════════════════════════════════════
+Timestamp:    ${BUILD_TIMESTAMP}
+Version:      ${SDK_VERSION}
+Filename:     ${IPA_NAME}
+SHA-256:      ${IPA_HASH}
+Patent:       USPTO 19/236,935
+───────────────────────────────────────────────────────────────────────
+LOGEOF
+
+echo -e "${GREEN}Build logged to: ${BUILD_LOG}${NC}"
+echo ""
+
+# Echo hash for verification
+echo -e "${BLUE}Embedded IPA Hash:${NC}"
+echo "  File: ${IPA_NAME}"
+echo "  SHA-256: ${IPA_HASH}"
 echo ""
 
 # Display results
