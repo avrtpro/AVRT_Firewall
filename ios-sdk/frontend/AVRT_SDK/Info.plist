@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<!--
+    AVRT SDK Framework Info.plist
+    Middleware SDK Bundle Configuration for Apple Compliance
+
+    (c) 2025 Jason I. Proper, BGBH Threads LLC
+    Patent: USPTO 19/236,935
+-->
+<dict>
+    <!-- Bundle Identification -->
+    <key>CFBundleDevelopmentRegion</key>
+    <string>en</string>
+    <key>CFBundleExecutable</key>
+    <string>$(EXECUTABLE_NAME)</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.bgbhthreads.avrt.sdk</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundleName</key>
+    <string>AVRT_SDK</string>
+    <key>CFBundleDisplayName</key>
+    <string>AVRT SDK</string>
+    <key>CFBundlePackageType</key>
+    <string>FMWK</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0.0</string>
+    <key>CFBundleVersion</key>
+    <string>013126</string>
+
+    <!-- Framework Role Configuration -->
+    <key>CFBundleTypeRole</key>
+    <string>Editor</string>
+
+    <!-- SDK Metadata -->
+    <key>AVRTSDKType</key>
+    <string>middleware-framework</string>
+    <key>AVRTSDKCategory</key>
+    <string>ethical-ai-firewall</string>
+    <key>AVRTLicensingModel</key>
+    <string>stripe-b2b</string>
+
+    <!-- Patent & IP -->
+    <key>AVRTPatent</key>
+    <string>USPTO 19/236,935</string>
+    <key>AVRTTrademarks</key>
+    <array>
+        <string>AVRT</string>
+        <string>SPIEL</string>
+        <string>THT</string>
+        <string>EaaS</string>
+        <string>LARM</string>
+        <string>AWOGO</string>
+        <string>BeGoodBeHumble</string>
+    </array>
+
+    <!-- Licensing Tiers Reference -->
+    <key>AVRTLicensingTiers</key>
+    <dict>
+        <key>Tier1_Developer</key>
+        <dict>
+            <key>Price</key>
+            <string>$29/month</string>
+            <key>Requests</key>
+            <integer>10000</integer>
+            <key>StripeProductID</key>
+            <string>prod_avrt_dev</string>
+        </dict>
+        <key>Tier2_Startup</key>
+        <dict>
+            <key>Price</key>
+            <string>$99/month</string>
+            <key>Requests</key>
+            <integer>100000</integer>
+            <key>StripeProductID</key>
+            <string>prod_avrt_startup</string>
+        </dict>
+        <key>Tier3_Business</key>
+        <dict>
+            <key>Price</key>
+            <string>$299/month</string>
+            <key>Requests</key>
+            <integer>500000</integer>
+            <key>StripeProductID</key>
+            <string>prod_avrt_business</string>
+        </dict>
+        <key>Tier4_Enterprise</key>
+        <dict>
+            <key>Price</key>
+            <string>Custom</string>
+            <key>Requests</key>
+            <string>Unlimited</string>
+            <key>StripeProductID</key>
+            <string>prod_avrt_enterprise</string>
+        </dict>
+    </dict>
+
+    <!-- Framework Capabilities -->
+    <key>AVRTCapabilities</key>
+    <array>
+        <string>SPIEL-Framework</string>
+        <string>THT-Protocol</string>
+        <string>EaaS-RuleEngine</string>
+        <string>LARM-AuditLogging</string>
+        <string>Voice-First-Input</string>
+        <string>SHA256-Verification</string>
+        <string>AES256-Encryption</string>
+        <string>Fail-Closed-Default</string>
+    </array>
+
+    <!-- Minimum Requirements -->
+    <key>MinimumOSVersion</key>
+    <string>16.0</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>16.0</string>
+    <key>UIDeviceFamily</key>
+    <array>
+        <integer>1</integer>
+        <integer>2</integer>
+    </array>
+
+    <!-- Privacy & Compliance -->
+    <key>NSPrivacyTracking</key>
+    <false/>
+    <key>NSPrivacyTrackingUsageDescription</key>
+    <string>AVRT SDK does not track users.</string>
+    <key>NSPrivacyCollectedDataTypes</key>
+    <array/>
+
+    <!-- Framework Export -->
+    <key>DYLIB_COMPATIBILITY_VERSION</key>
+    <string>1</string>
+    <key>DYLIB_CURRENT_VERSION</key>
+    <string>1</string>
+    <key>DEFINES_MODULE</key>
+    <true/>
+    <key>MODULEMAP_FILE</key>
+    <string>$(SRCROOT)/AVRT_SDK.modulemap</string>
+
+    <!-- Copyright -->
+    <key>NSHumanReadableCopyright</key>
+    <string>(c) 2025 Jason I. Proper, BGBH Threads LLC. All Rights Reserved.</string>
+</dict>
+</plist>

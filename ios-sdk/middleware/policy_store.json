@@ -1,0 +1,155 @@
+{
+  "name": "AVRT SPIEL Policy Store",
+  "version": "1.0.0",
+  "description": "Configurable policy configuration for SPIEL Framework enforcement",
+  "copyright": "(c) 2025 Jason I. Proper, BGBH Threads LLC",
+  "patent": "USPTO 19/236,935",
+
+  "fail_closed": true,
+  "strict_mode": false,
+
+  "thresholds": {
+    "safety": 85.0,
+    "personalization": 70.0,
+    "integrity": 80.0,
+    "ethics": 90.0,
+    "logic": 75.0,
+    "composite_minimum": 80.0
+  },
+
+  "tht_settings": {
+    "truth_required": true,
+    "honesty_required": true,
+    "transparency_required": true,
+    "confidence_threshold": 0.8
+  },
+
+  "patterns": {
+    "harmful": [
+      "harm",
+      "hurt",
+      "attack",
+      "kill",
+      "destroy",
+      "hate",
+      "violence",
+      "weapon",
+      "bomb",
+      "explosive",
+      "poison",
+      "murder",
+      "assault",
+      "threat"
+    ],
+    "unethical": [
+      "cheat",
+      "lie",
+      "deceive",
+      "manipulate",
+      "exploit",
+      "abuse",
+      "steal",
+      "fraud",
+      "illegal",
+      "scam",
+      "trick",
+      "con"
+    ],
+    "dishonest": [
+      "just trust me",
+      "believe me",
+      "i guarantee",
+      "secret",
+      "don't tell anyone",
+      "between us",
+      "definitely certain",
+      "absolutely guarantee",
+      "100% sure",
+      "never wrong",
+      "always right",
+      "off the record"
+    ],
+    "positive": [
+      "help",
+      "assist",
+      "support",
+      "understand",
+      "because",
+      "reason",
+      "based on",
+      "according to",
+      "evidence suggests",
+      "research shows",
+      "in my understanding",
+      "let me explain"
+    ],
+    "personal": [
+      "you",
+      "your",
+      "i can help",
+      "let me",
+      "would you like",
+      "i understand",
+      "here's what",
+      "for you"
+    ]
+  },
+
+  "actions": {
+    "on_safety_violation": "block",
+    "on_ethics_violation": "block",
+    "on_integrity_warning": "warn",
+    "on_logic_warning": "warn",
+    "on_uncertainty": "review"
+  },
+
+  "logging": {
+    "enabled": true,
+    "level": "INFO",
+    "audit_all": true,
+    "include_content": false
+  },
+
+  "rate_limits": {
+    "requests_per_minute": 100,
+    "requests_per_hour": 5000,
+    "burst_limit": 20
+  },
+
+  "custom_rules": [
+    {
+      "id": "medical_advice_warning",
+      "description": "Warn on potential medical advice",
+      "trigger_patterns": ["take medicine", "stop medication", "diagnosis"],
+      "action": "warn",
+      "message": "Content may contain medical advice. Please consult a healthcare professional."
+    },
+    {
+      "id": "financial_advice_warning",
+      "description": "Warn on potential financial advice",
+      "trigger_patterns": ["invest in", "guaranteed returns", "financial advice"],
+      "action": "warn",
+      "message": "Content may contain financial advice. Please consult a financial advisor."
+    },
+    {
+      "id": "legal_advice_warning",
+      "description": "Warn on potential legal advice",
+      "trigger_patterns": ["legal advice", "sue", "lawsuit", "attorney"],
+      "action": "warn",
+      "message": "Content may contain legal advice. Please consult a legal professional."
+    }
+  ],
+
+  "exceptions": {
+    "allowed_domains": [],
+    "allowed_users": [],
+    "bypass_patterns": []
+  },
+
+  "metadata": {
+    "created_at": "2025-01-01T00:00:00Z",
+    "updated_at": "2025-01-31T00:00:00Z",
+    "author": "Jason I. Proper",
+    "organization": "BGBH Threads LLC"
+  }
+}

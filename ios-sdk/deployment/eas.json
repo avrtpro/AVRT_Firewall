@@ -1,0 +1,48 @@
+{
+  "cli": {
+    "version": ">= 5.0.0"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "ios": {
+        "simulator": true,
+        "buildConfiguration": "Debug"
+      },
+      "env": {
+        "AVRT_ENV": "development",
+        "AVRT_API_BASE_URL": "http://localhost:8000/api"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "ios": {
+        "buildConfiguration": "Release"
+      },
+      "env": {
+        "AVRT_ENV": "staging",
+        "AVRT_API_BASE_URL": "https://staging.avrt.pro/api"
+      }
+    },
+    "production": {
+      "ios": {
+        "buildConfiguration": "Release",
+        "credentialsSource": "remote"
+      },
+      "env": {
+        "AVRT_ENV": "production",
+        "AVRT_API_BASE_URL": "https://avrt.pro/api"
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "ios": {
+        "appleId": "your-apple-id@example.com",
+        "ascAppId": "YOUR_APP_STORE_CONNECT_APP_ID",
+        "appleTeamId": "YOUR_TEAM_ID"
+      }
+    }
+  }
+}
