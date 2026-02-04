@@ -113,6 +113,19 @@ bgbh.hope.ai@gmail.com
 
 ---
 
-© Jason Ian Proper — BGBH Threads LLC  
+© Jason Ian Proper — BGBH Threads LLC
 All rights reserved.
+
+---
+
+## Cryptographic Integrity
+
+This document has been cryptographically sealed using SHA-256 hashing to protect timestamped authorship and content originality.
+
+**SHA-256 Hash:**
+`0c2c0959fad2d95c07cb61839d743a4fddcf3e6cc75d6989f77248043eae4b7a`
+
+**Timestamp:** 2026-02-03
+**Patent:** USPTO 19/236,935
+**Lock Owner:** Jason Ian Proper (BGBH Threads LLC)
 
