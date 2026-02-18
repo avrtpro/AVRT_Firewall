@@ -1,0 +1,389 @@
+\documentclass[11pt,letterpaper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+% Header/Footer
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{AVRT System Addendum v1.0}
+\rhead{USPTO 19/236,935}
+\cfoot{\thepage}
+
+% Listings configuration
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!50!black},
+    stringstyle=\color{red!70!black},
+    backgroundcolor=\color{gray!5},
+}
+
+% Hyperlink configuration
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!70!black,
+    citecolor=blue!70!black,
+    urlcolor=blue!70!black,
+}
+
+% Title
+\title{
+    \textbf{AVRT System Technical Addendum} \\
+    \large Advanced Voice Reasoning Technology \\
+    \large Middleware Firewall Architecture
+}
+\author{
+    Jason I. Proper \\
+    BGBH Threads LLC \\
+    \texttt{info@avrt.pro}
+}
+\date{
+    Document Version: 1.0.0 \\
+    Patent Reference: USPTO Application 19/236,935 \\
+    License: CC BY-NC 4.0 \\
+    January 31, 2025
+}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+\begin{abstract}
+This addendum provides a formal technical description of the AVRT (Advanced Voice Reasoning Technology) middleware firewall system. AVRT operates as a post-generation validation layer between AI language model providers and end users. The system implements two proprietary protocol stacks—SPIEL (Safety, Personalization, Integrity, Ethics, Logic) and THT (Truth, Honesty, Transparency)—to evaluate, score, and gate AI-generated outputs through deterministic rule evaluation. This document specifies the scoring algorithms, enforcement logic, audit chain construction, and cross-provider determinism properties.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+% ============================================================================
+\section{System Architecture}
+% ============================================================================
+
+\subsection{Operational Position}
+
+AVRT is positioned as middleware in the AI interaction pipeline:
+
+\begin{enumerate}
+    \item User submits input (voice or text).
+    \item Input is forwarded to an upstream LLM provider.
+    \item The LLM generates a response.
+    \item AVRT intercepts the response before delivery.
+    \item SPIEL scoring and THT validation are applied.
+    \item Based on scores and thresholds, an enforcement action is determined.
+    \item The validated (or replaced) output is delivered to the user.
+    \item An audit entry is recorded with SHA-256 integrity hash.
+\end{enumerate}
+
+\subsection{Provider Independence}
+
+AVRT operates identically regardless of the upstream LLM provider. The validation pipeline receives text input and produces a deterministic result. No provider-specific logic exists in the evaluation path.
+
+\subsection{Deployment Modes}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\toprule
+\textbf{Mode} & \textbf{Class} & \textbf{Description} \\
+\midrule
+\texttt{voice-first} & \texttt{VoiceFirewall} & Voice-transcribed input processing \\
+\texttt{text-only} & \texttt{AVRTFirewall} & Text-based validation \\
+\texttt{hybrid} & \texttt{AVRTFirewall} & Auto-detecting mode \\
+\bottomrule
+\end{tabular}
+\caption{AVRT operating modes}
+\end{table}
+
+% ============================================================================
+\section{SPIEL Framework}
+% ============================================================================
+
+\subsection{Formal Definition}
+
+Let $T$ denote the AI-generated text to be validated. The SPIEL framework computes five scores:
+
+\begin{align}
+S(T) &= \text{Safety score} \\
+P(T) &= \text{Personalization score} \\
+I(T) &= \text{Integrity score} \\
+E(T) &= \text{Ethics score} \\
+L(T) &= \text{Logic score}
+\end{align}
+
+The composite score is:
+
+\begin{equation}
+C(T) = \frac{S(T) + P(T) + I(T) + E(T) + L(T)}{5}
+\end{equation}
+
+\subsection{Scoring Functions}
+
+Each dimension uses a base score adjusted by pattern matching:
+
+\subsubsection{Safety}
+
+\begin{equation}
+S(T) = \text{clamp}\left(100 - 15 \cdot |\{p \in \mathcal{H} : p \subseteq \text{lower}(T)\}|, \; 0, \; 100\right)
+\end{equation}
+
+where $\mathcal{H}$ is the set of harmful patterns and $p \subseteq \text{lower}(T)$ denotes substring containment in the lowercased text.
+
+\subsubsection{Personalization}
+
+\begin{equation}
+P(T) = \min\left(100, \; 80 + 4 \cdot |\{m \in \mathcal{P} : m \subseteq \text{lower}(T)\}|\right)
+\end{equation}
+
+where $\mathcal{P}$ is the set of personalization markers.
+
+\subsubsection{Integrity}
+
+\begin{equation}
+I(T) = \max\left(0, \; 95 - 15 \cdot |\{p \in \mathcal{D} : p \subseteq \text{lower}(T)\}|\right)
+\end{equation}
+
+where $\mathcal{D}$ is the set of dishonest patterns.
+
+\subsubsection{Ethics}
+
+\begin{equation}
+E(T) = \max\left(0, \; 100 - 20 \cdot |\{p \in \mathcal{U} : p \subseteq \text{lower}(T)\}|\right)
+\end{equation}
+
+where $\mathcal{U}$ is the set of unethical patterns.
+
+\subsubsection{Logic}
+
+\begin{equation}
+L(T) = \text{clamp}\left(85 + 3 \cdot |\{m \in \mathcal{R} : m \subseteq \text{lower}(T)\}| - \delta(T), \; 0, \; 100\right)
+\end{equation}
+
+where $\mathcal{R}$ is the set of reasoning markers and $\delta(T) = 20$ if $|\text{strip}(T)| < 10$, else $\delta(T) = 0$.
+
+\subsection{Enforcement Decision Function}
+
+The enforcement action $A(T)$ is determined by:
+
+\begin{equation}
+A(T) = \begin{cases}
+\text{BLOCK} & \text{if } S(T) < 50 \text{ or } E(T) < 50 \\
+\text{BLOCK} & \text{if } S(T) < \tau_S \\
+\text{BLOCK} & \text{if } E(T) < \tau_E \\
+\text{WARN}  & \text{if } I(T) < \tau_I \\
+\text{WARN}  & \text{if } L(T) < \tau_L \\
+\text{REVIEW} & \text{if violations detected and thresholds met} \\
+\text{ALLOW} & \text{otherwise}
+\end{cases}
+\end{equation}
+
+where $\tau_S = 85$, $\tau_E = 90$, $\tau_I = 80$, $\tau_L = 75$ are the default thresholds.
+
+% ============================================================================
+\section{THT Protocol}
+% ============================================================================
+
+\subsection{Formal Definition}
+
+The THT protocol evaluates three boolean predicates on text $T$:
+
+\begin{align}
+\text{Truth}(T) &= \neg \exists \, p \in \mathcal{F} : p \subseteq \text{lower}(T) \\
+\text{Honesty}(T) &= \neg \exists \, p \in \mathcal{D}_{\text{THT}} : p \subseteq \text{lower}(T) \\
+\text{Transparency}(T) &= \begin{cases}
+\exists \, m \in \mathcal{M} : m \subseteq \text{lower}(T) & \text{if claims}(T) \wedge |T| \geq 50 \\
+\text{true} & \text{otherwise}
+\end{cases}
+\end{align}
+
+where $\mathcal{F}$ is the set of false/overconfident patterns, $\mathcal{D}_{\text{THT}}$ is the dishonest pattern set, and $\mathcal{M}$ is the set of transparency markers.
+
+\subsection{Compliance Determination}
+
+\begin{equation}
+\text{confidence} = \frac{\text{Truth}(T) + \text{Honesty}(T) + \text{Transparency}(T)}{3}
+\end{equation}
+
+\begin{equation}
+\text{compliant}(T) = \text{Truth}(T) \wedge \text{Honesty}(T) \wedge \text{Transparency}(T) \wedge (\text{confidence} \geq 0.8)
+\end{equation}
+
+THT non-compliance does not trigger BLOCK. If SPIEL passes but THT fails, the result status is downgraded to WARNING.
+
+% ============================================================================
+\section{Fail-Closed Architecture}
+% ============================================================================
+
+The SPIEL engine implements fail-closed behavior:
+
+\begin{lstlisting}[language=Python, caption={Fail-closed exception handler}]
+try:
+    # Full SPIEL analysis pipeline
+    result = analyze_all_dimensions(text)
+except Exception as e:
+    if self.fail_closed:
+        return SPIELResult(
+            action=BLOCK,
+            all_scores=0.0,
+            violations=["system_error"]
+        )
+    else:
+        raise
+\end{lstlisting}
+
+This ensures that no unvalidated content reaches the end user under any failure condition. The \texttt{fail\_closed} parameter defaults to \texttt{true} and is configurable in \texttt{policy\_store.json}.
+
+% ============================================================================
+\section{Audit Chain}
+% ============================================================================
+
+\subsection{Entry Structure}
+
+Each validation event produces an audit entry:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\toprule
+\textbf{Field} & \textbf{Type} & \textbf{Description} \\
+\midrule
+\texttt{request\_id} & UUID v4 & Unique per validation \\
+\texttt{user\_id} & Optional string & Caller-supplied identifier \\
+\texttt{input\_text} & String & Original user input \\
+\texttt{output\_text} & String & AI-generated output \\
+\texttt{validation\_result} & Object & Full SPIEL/THT result \\
+\texttt{context} & Dictionary & Caller-supplied metadata \\
+\texttt{timestamp} & ISO 8601 & UTC timestamp \\
+\bottomrule
+\end{tabular}
+\caption{Audit entry fields}
+\end{table}
+
+\subsection{Hash Chain Integrity}
+
+Each audit entry is hashable via SHA-256. The hash service supports chain verification where each entry's hash includes the previous entry's hash, forming an append-only integrity chain.
+
+Optional blockchain timestamping is supported via OriginStamp integration when \texttt{blockchain\_timestamping} is enabled.
+
+% ============================================================================
+\section{Determinism Properties}
+% ============================================================================
+
+\subsection{Claim}
+
+For any text $T$ and policy configuration $\Pi$, the SPIEL and THT evaluation functions are deterministic:
+
+\begin{equation}
+\forall \, T, \Pi : f(T, \Pi) = f(T, \Pi)
+\end{equation}
+
+This holds because:
+
+\begin{enumerate}
+    \item All scoring functions use substring matching (no randomness).
+    \item Pattern lists are loaded once from a static configuration file.
+    \item Arithmetic operations (addition, division, clamping) are deterministic.
+    \item No external API calls occur during evaluation.
+    \item No model inference occurs in the validation path.
+\end{enumerate}
+
+\subsection{Verification}
+
+The determinism test harness (\texttt{avrt\_determinism\_test\_live.py}) verifies this property by:
+
+\begin{enumerate}
+    \item Running the same text through the AVRT validation pipeline $N$ times.
+    \item Computing SHA-256 hashes of each validation result (serialized as sorted JSON).
+    \item Asserting that all $N$ hashes are identical.
+\end{enumerate}
+
+% ============================================================================
+\section{Cross-Provider Testing}
+% ============================================================================
+
+The test harness supports three LLM providers:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{llll}
+\toprule
+\textbf{Provider} & \textbf{API Key Env} & \textbf{Default Model} & \textbf{Temperature} \\
+\midrule
+OpenAI & \texttt{OPENAI\_API\_KEY} & \texttt{gpt-4o} & 0.0 \\
+Anthropic & \texttt{ANTHROPIC\_API\_KEY} & \texttt{claude-sonnet-4-20250514} & 0.0 \\
+Google Gemini & \texttt{GEMINI\_API\_KEY} & \texttt{gemini-1.5-pro} & 0.0 \\
+\bottomrule
+\end{tabular}
+\caption{Provider configurations for determinism testing}
+\end{table}
+
+Cross-provider comparison tests send identical prompts to all available providers and compare response hashes. Different providers are expected to produce different responses (different hashes). The test verifies that the AVRT validation layer produces identical scores regardless of which provider generated the response.
+
+% ============================================================================
+\section{Pattern Configuration Schema}
+% ============================================================================
+
+All patterns are stored in \texttt{policy\_store.json}:
+
+\begin{lstlisting}[language={}, caption={Policy store structure (abbreviated)}]
+{
+  "version": "1.0.0",
+  "fail_closed": true,
+  "thresholds": {
+    "safety": 85.0,
+    "personalization": 70.0,
+    "integrity": 80.0,
+    "ethics": 90.0,
+    "logic": 75.0,
+    "composite_minimum": 80.0
+  },
+  "patterns": {
+    "harmful": [...],
+    "unethical": [...],
+    "dishonest": [...],
+    "positive": [...],
+    "personal": [...]
+  },
+  "custom_rules": [...],
+  "rate_limits": {
+    "requests_per_minute": 100,
+    "requests_per_hour": 5000,
+    "burst_limit": 20
+  }
+}
+\end{lstlisting}
+
+% ============================================================================
+\section{Revision History}
+% ============================================================================
+
+\begin{table}[h]
+\centering
+\begin{tabular}{llll}
+\toprule
+\textbf{Version} & \textbf{Date} & \textbf{Author} & \textbf{Changes} \\
+\midrule
+1.0.0 & 2025-01-31 & J. Proper & Initial addendum \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\end{document}
